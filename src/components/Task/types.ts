@@ -1,3 +1,5 @@
 import { ITask } from "../../types/task";
 
-export interface ITaskProps extends ITask {}
+export interface ITaskProps extends ITask {
+    onChangeTask: (status: boolean) => void;
+}

@@ -1,17 +1,23 @@
-import { useState } from "react";
 import { InputWrapper } from "./styles";
 import { IInputProps } from "./types";
 
-const Input: React.FC<IInputProps> = ({ onChange = () => {} }) => {
-    const [value, setValue] = useState('');
+const Input: React.FC<IInputProps> = ({ 
+    value = '', 
+    type = 'text',
+    onChange = () => {}
+}) => {
 
     function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-        setValue(e.currentTarget.value);
-        onChange(e.currentTarget.value);
+        const newValue = e.target.value;
+        onChange?.(newValue);
     }
  
     return (
-        <InputWrapper type="text" onChange={onChangeHandler} value={value}/>
+        <InputWrapper 
+            type={type}
+            onChange={onChangeHandler} 
+            value={value}
+        />
     )
 }
 
