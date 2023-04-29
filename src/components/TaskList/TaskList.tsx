@@ -1,4 +1,5 @@
 import { FlexColumn } from '../../css/css';
+import Task from '../Task/Task';
 import { ITaskListProps } from './types';
  
 const TaskList: React.FC<ITaskListProps> = ({ items = [] }) => {
@@ -8,7 +9,7 @@ const TaskList: React.FC<ITaskListProps> = ({ items = [] }) => {
 
     return (
         <FlexColumn>
-            { items.map((task) => <div key={task.name}>{ task.name }</div> )}
+            { items.map((task) => <Task key={ task.name } {...task} /> )}
         </FlexColumn>
     )
 }
