@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TaskList from '../TaskList/TaskList';
+import { tasks as TaskItems } from '../../utils/tasks';
+import { AppContainer } from '../../css/css';
 
-const App:React.FC = () => {
+const App: React.FC = () => {
+  const [tasks] = useState(TaskItems);
+
   return (
-    <div className="App">
-        123
-    </div>
+    <AppContainer className="App">
+      <TaskList items={tasks} />
+    </AppContainer>
   );
 }
 
