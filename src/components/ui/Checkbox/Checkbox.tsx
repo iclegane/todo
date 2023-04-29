@@ -1,15 +1,10 @@
 import { CheckboxLabel, CheckboxWrapper, HiddenCheckbox } from "./styles";
 import { ICheckboxProps } from "./types";
 
-const Checkbox: React.FC<ICheckboxProps> = ({ children, checked, onChange, ...props }) => {
-
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e);
-    }
-
+const Checkbox: React.FC<ICheckboxProps> = ({ children, checked, onChange }) => {
     return (
         <CheckboxWrapper>
-            <HiddenCheckbox type="checkbox" onChange={onChangeHandler} checked={checked} />
+            <HiddenCheckbox type="checkbox" onChange={onChange} checked={checked} />
             <CheckboxLabel>{children}</CheckboxLabel>
         </CheckboxWrapper>
     )
