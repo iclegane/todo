@@ -26,9 +26,17 @@ const App: React.FC = () => {
     );
   }
 
+  function deleteTask(index: number) {
+    setTasks((prevState) => prevState.filter((_, i) => index !== i));
+  }
+
   return (
     <AppContainer className="App">
-      <TaskList items={tasks} onChangeTask={changeTask} />
+      <TaskList 
+        items={tasks} 
+        onChangeTask={changeTask}  
+        onDeleteTask={deleteTask}
+      />
       <TaskAdd onAdd={addTask}/>
     </AppContainer>
   );
